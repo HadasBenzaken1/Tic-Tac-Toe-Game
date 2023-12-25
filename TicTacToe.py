@@ -19,13 +19,11 @@ def play(board,next_move):
     current_player = (current_player + 1) % len(players)
     print_board(board)
 
-
 def print_board(board):
     for i in range(len(board)):
         for j in range(len(board[i])):
             print("{:^3}".format(board[i][j]), end='')
         print("")
-
 
 
 def is_valid(board,next_move):
@@ -38,6 +36,7 @@ def _is_all_the_same(board,i1,i2,i3,val):
        board[i1[0]][i1[1]] == board[i3[0]][i3[1]] and
        board[i1[0]][i1[1]] == val):
        return True
+
 
 def get_winner(board):
     for player in ['X', '0']:
@@ -68,6 +67,7 @@ while not game_over(board):
     next_move=players[current_player].get_move()
     if is_valid(board,next_move):
         play(board,next_move)
+
 
 winner=get_winner(board)
 print("Yay! " +winner+ " won!!")
